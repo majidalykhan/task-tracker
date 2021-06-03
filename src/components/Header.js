@@ -1,9 +1,12 @@
-const Header = ({title,paragraph}) => {
+import Button from './Button'
+
+
+const Header = ({title}) => {
     return (
         <div>
-            <header>
+            <header className="header">
                 <h1>{title}</h1>
-                <p>{paragraph}</p>
+                <Button color='dodgerblue' text='Add'/>
             </header>
         </div>
     )
@@ -13,5 +16,11 @@ Header.defaultProps = {
     title: 'Task Tracker',
     paragraph: "Hello this is task tracker react app.",
 }
+
+// CSS in JS
+// const headingStyle = {
+//     color: 'blue',
+//     backgroundColor:'lightblue',
+// }
 
 export default Header
