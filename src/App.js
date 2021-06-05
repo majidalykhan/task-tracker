@@ -3,9 +3,9 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 
-
-
 function App() {
+
+  const [showAddTask, setShowAddTask] = useState(false);
 
   const [tasks, setTasks] = useState([
     {
@@ -51,8 +51,13 @@ const toggleReminder = (id) => {
   
   return (
     <div className="container">
-        <Header/>
-        <AddTask onAdd={addTask}/>
+        <Header onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}/>
+        {
+          //If showAddTask is equal to true then AddTask
+        showAddTask && <AddTask onAdd={addTask}/>
+        }
+
         { 
         // If tasks length is greater than 0 then
         tasks.length > 0 ? 
